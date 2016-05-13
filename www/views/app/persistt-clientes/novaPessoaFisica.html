@@ -1,0 +1,77 @@
+<ion-view title="Novo Cliente">
+
+    <ion-nav-buttons side="right">
+        <button menu-toggle="right" class="button button-icon icon ion-ios-checkmark-empty" ng-click="addNvpf()"></button>
+    </ion-nav-buttons>
+
+    <ion-content has-header="true" class="hasPaddingTop">
+        <div class="list">
+
+            <div class="item item-divider">
+                Pessoa Física
+            </div>
+            
+            <label class="item item-input">
+                <input type="text" placeholder="Nome" ng-model="nvpf.nome">
+            </label>
+            <label class="item item-input">
+                <input type="tel" placeholder="CPF" ui-mask-placeholder ng-model="nvpf.cpf" ui-mask="999.999.999-99">
+            </label>
+            <label class="item item-input">
+                <textarea maxlength="200" placeholder="Observação"  ng-model="nvpf.obs"></textarea>
+            </label>
+            
+
+            <div class="item item-divider">
+                Telefones
+            </div>
+
+            <div class="item" ng-repeat="telefone in telfs">
+                <p>
+                    <span ng-if="telefone.tipo === 1">Comercial</span>
+                    <span ng-if="telefone.tipo === 2">Celular</span>
+                    <span ng-if="telefone.tipo === 3">Pessoal</span>
+                    <span ng-if="telefone.descricao.trim() != ''"> - </span>
+                    {{ telefone.descricao }}</p>
+                <h2>{{ telefone.numero }}</h2>
+            </div>
+            
+            <div class="item" ng-click="modalNumero.show();">
+                <h2 align="center" style="color: #919191;"><span class="ion-plus"></span> Adicionar Telefone</h2>
+            </div>
+
+            <div class="item item-divider">
+                E-mails
+            </div>
+
+            <div class="item" ng-repeat="email in emails">
+                <p>{{email.descricao}}</p>
+                <h2>{{email.email}}</h2>
+            </div>
+            
+            <div class="item" ng-click="modalEmail.show();">
+                <h2 align="center" style="color: #919191;"><span class="ion-plus"></span> Adicionar E-mail</h2>
+            </div>
+
+            <div class="item item-divider">
+                Endereços
+            </div>
+
+            <div class="item" ng-repeat="endereco in enderecos">
+                <p ng-if="endereco.tipo === 1">Endereço de Cobrança</p>
+                <p ng-if="endereco.tipo === 2">Endereço de Entrega</p>
+                <p ng-if="endereco.tipo === 3">Outros</p>
+                <h2>{{endereco.cidade}} - {{endereco.estado}}</h2>
+                <h2>{{endereco.bairro}}</h2>
+                <h2>{{endereco.logradouro}}, {{endereco.numero}}</h2>
+                <h2>{{endereco.complemento}}</h2>
+                <h2>{{endereco.cep | cep}}</h2>
+            </div>
+            
+            <div class="item" ng-click="modalEndereco.show();">
+                <h2 align="center" style="color: #919191;"><span class="ion-plus"></span> Adicionar Endereço</h2>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

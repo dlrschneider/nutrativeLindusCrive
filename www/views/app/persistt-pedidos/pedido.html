@@ -1,0 +1,71 @@
+<ion-view title="Pedido n° {{ pedidoSelecionado }}">
+    
+    <ion-nav-buttons side="right">
+        <button menu-toggle="right" class="button button-icon icon ion-ios-trash-outline" ng-click="openModalExc()"></button>
+    </ion-nav-buttons>
+    
+    <ion-content has-header="true" class="hasPaddingTop">
+        <div class="list">
+
+            <div class="item item-divider">
+                Cliente
+            </div>
+            <div class="item" ng-click="detCliente(pedido[0][7])">
+                <h2>{{ pedido[0][1] }}</h2>
+                <p>{{ pedido[0][2] }}</p>
+            </div>
+
+            <div class="item item-divider">
+                Tabela de Preço
+            </div>
+            <div class="item">
+                <h2>{{ pedido[0][3] }}</h2>
+            </div>
+
+            <div class="item item-divider">
+                Prazo do Pagamento
+            </div>
+            <div class="item">
+                <h2>{{ pedido[0][4] }}</h2>
+            </div>
+
+            <div ng-show="pedido[0][5] !== ''">
+                <div class="item item-divider">
+                    Observações
+                </div>
+                <div class="item">
+                    <h2>{{ pedido[0][5] }}</h2>
+                </div>
+            </div>
+
+            <div class="item item-divider">
+                Status
+            </div>
+            <div class="item">
+                <h2>{{ pedido[0][6] }}</h2>
+            </div>
+            
+            <div class="item item-divider">
+                Itens do Pedido
+                <div class="row botaoAddItem">
+                    <div class="col" ng-click="adicionaItens()">
+                        <i class="ion-android-add"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="item" ng-repeat="item in itensPedido">
+                <h2 style="width: 90%;">{{item[2]}}</h2>
+                <p>{{item[4]}} {{item[3]}} x {{item[5] | currency:'R$ '}} = {{item[6] | currency:'R$ '}}</p>
+                <div class="row botoesPedidos">
+                    <div class="col" ng-click="openModalItens(item, $index)">
+                        <i class="ion-android-more-vertical"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <h2><strong>Total {{total | currency:'R$ '}}</strong></h2>
+            </div>
+            
+        </div>
+    </ion-content>
+</ion-view>

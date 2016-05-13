@@ -1,0 +1,56 @@
+<ion-view title="Detalhes">
+   <ion-content has-header="true" class="hasPaddingTop">
+   		<div class="list">
+   			
+	      <div class="item item-divider">
+		    Dados Cliente 
+		  </div>
+	      <div class="item">
+             <p>Razão Social</p>
+             <h2>{{clienteSel[0][8]}}</h2>
+	      </div>
+	      <div class="item">
+             <p>Nome Fantasia</p>
+             <h2>{{clienteSel[0][7]}}</h2>
+	      </div>
+	      <div class="item">
+             <p ng-if="clienteSel[0][4] !== null">CNPJ</p>
+             <p ng-if="clienteSel[0][5] !== null">CPF</p>
+             <h2>{{clienteSel[0][4] | cnpj}}{{clienteSel[0][5] | cpf}}</h2>
+	      </div>
+	      <div class="item">
+             <p>Inscrição Estadual</p>
+             <h2>{{clienteSel[0][6]}}</h2>
+	      </div>
+   			
+	      <div ng-if="TelClienteSel[0] != null" class="item item-divider">
+		    Telefones
+		  </div>
+	      <div class="item" ng-repeat="tc in TelClienteSel">
+             <p>{{tc[3]}}</p>
+             <h2>({{tc[4]}}) {{tc[5]}}</h2>
+	      </div>
+   			
+	      <div ng-if="EmlClienteSel[0] != null" class="item item-divider">
+		    E-mails
+		  </div>
+	      <div class="item" ng-repeat="es in EmlClienteSel">
+             <p>{{es[2]}}</p>
+             <h2>{{es[3]}}</h2>
+	      </div>
+   			
+	      <div ng-if="EndClienteSel[0] != null" class="item item-divider">
+		    Endereços
+		  </div>
+	      <div class="item" ng-repeat="ec in EndClienteSel">
+             <p ng-if="ec[9] === '1'">Endereço de Cobrança</p>
+             <p ng-if="ec[9] === '2'">Endereço de Entrega</p>
+             <p ng-if="ec[9] === '3'">Outros</p>
+             <h2>{{ec[7]}}, {{ec[8]}}</h2>
+             <h2>{{ec[11]}} - {{ec[10]}}</h2>
+             <h2>{{ec[2] | cep}}</h2>
+	      </div>
+	      	
+		</div>
+   </ion-content>
+</ion-view>

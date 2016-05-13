@@ -1,0 +1,39 @@
+<ion-view class="wordpress-view">
+
+    <ion-nav-buttons side="right">
+        <button menu-toggle="right" class="button button-icon icon ion-ios-refresh-empty" ng-click="syncDB()"></button>
+    </ion-nav-buttons>
+
+    <ion-nav-title>
+        <span>Persistt</span>
+    </ion-nav-title>
+    <ion-content>
+        <div class="list card">
+            <a class="item item-icon-left item-icon-right" ui-sref="persistt.pedidos">
+                <i class="icon ion-ios-cart"></i>
+                <div>
+                    <span class="title">Pedidos</span>
+                    <p class="description">{{ qtdPedidos }} Pedidos</p>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left item-icon-right" ui-sref="persistt.clientes">
+                <i class="icon ion-ios-people"></i>
+                <div>
+                    <span class="title">Clientes</span>
+                    <p class="description">{{ qtdClientes }} Clientes</p>
+                </div>
+            </a>
+        </div>
+        <div class="list card">
+            <a class="item item-icon-left item-icon-right" ui-sref="persistt.produtos">
+                <i class="icon ion-social-dropbox"></i>
+                <div>
+                    <span class="title">Produtos</span>
+                    <p class="description">{{ qtdProdutos }} Produtos</p>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

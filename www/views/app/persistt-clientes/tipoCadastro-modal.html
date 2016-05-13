@@ -1,0 +1,22 @@
+<div class="bg-secPlano" ng-click="closeModal()"></div>
+<div class="modal modalTpCadastro">
+   <div class="ps-modal-area">
+       
+       <div class="bar bar-header bar-stable">
+          <h1 class="title lnHeig1_9">Tipo de cadastro</h1>
+       </div>
+       
+       <div class="ps-modal-content">
+          <div class="row">
+            <button class="button button-clear button-dark" ng-click="closeModal(); $state.go('persistt.novaPessoaFisica')">Pessoa Física</button>
+           </div>
+           <div class="row">
+            <button class="button button-clear button-dark" ng-click="closeModal(); $state.go('persistt.novaPessoaJuridica')">Pessoa Jurídica</button>
+           </div>
+       </div>
+       
+       <div class="ps-modal-confCanc">
+          <button class="button button-clear button-dark" ng-click="closeModal()">Cancelar</button>
+       </div>
+   </div>
+</div>

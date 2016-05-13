@@ -1,0 +1,20 @@
+<div class="bg-secPlano" ng-click="closeModal();quantidade = null;"></div>
+<div class="modal modalFiltroData">
+    <div class="ps-modal-area">
+
+        <div class="bar bar-header bar-stable">
+            <h1 class="title lnHeig1_9">{{prodSel[0]}}</h1>
+        </div>
+
+        <div class="ps-modal-content">
+            <label class="item item-input">
+                <input type="number" placeholder="Quantidade" ng-model="quantidade">
+            </label>
+        </div>
+
+        <div class="ps-modal-confCanc">
+            <button class="button button-clear button-balanced" ng-click="closeModal();quantidade = null">Cancelar</button>
+            <button class="button button-clear button-balanced" ng-click="addQtd(quantidade);quantidade = null">Ok</button>
+        </div>
+    </div>
+</div>

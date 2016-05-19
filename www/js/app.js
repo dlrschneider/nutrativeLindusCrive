@@ -68,7 +68,10 @@ app.config(function ($ionicConfigProvider, $ionicFilterBarConfigProvider, $httpP
     $ionicFilterBarConfigProvider.placeholder = function () {
         return "Procurar";
     }
+    
 });
+
+
 
 
 app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
@@ -108,154 +111,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
             }
         }
     })
-
-
-
-
-
-    .state('persistt', {
-        url: "/persistt",
-        abstract: true,
-        templateUrl: "views/app/side-menu.html",
-        controller: 'SideMenuController'
-    })
-
-    .state('persistt.home', {
-        url: "/home",
-        views: {
-            'menuContent': {
-                templateUrl: "views/app/persistt-home.html",
-                controller: 'HomeController'
-            }
-        }
-    })
-
-    //PEDIDOS
-    .state('persistt.pedidos', {
-            cache: false,
-            url: '/pedidos',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-pedidos.html',
-                    controller: 'PedidosController'
-                }
-            }
-        })
-        .state('persistt.pedidoDetalhes', {
-            url: '/pedido',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-pedidos/pedido.html',
-                    controller: 'PedidoDetalheController'
-                }
-            }
-        })
-        .state('persistt.pedidoNovo', {
-            url: '/pedido-novo',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-pedidos/pedido-novo.html',
-                    controller: 'PedidoNovoController'
-                }
-            }
-        })
-        .state('persistt.pedidoNovoClientes', {
-            url: '/pedido-novo-clientes',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-pedidos/pedido-novo-cliente.html',
-                    controller: 'PedidoNovoClienteController'
-                }
-            }
-        })
-        .state('persistt.pedidoNovoTabelaPreco', {
-            url: '/pedido-novo-tabela-preco',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-pedidos/pedido-novo-tabela.html',
-                    controller: 'PedidoNovoTabelaPrecoController'
-                }
-            }
-        })
-        .state('persistt.pedidoNovoObservacao', {
-            url: '/pedido-novo-observacao',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-pedidos/pedido-novo-observacao.html',
-                    controller: 'PedidoNovoObservacaoController'
-                }
-            }
-        })
-        .state('persistt.pedidoNovoItens', {
-            url: '/pedido-novo-itens',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-pedidos/pedido-novo-item.html',
-                    controller: 'PedidoNovoItemController'
-                }
-            }
-        })
-
-    //CLIENTES
-    .state('persistt.clientes', {
-            url: '/clientes',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-clientes.html',
-                    controller: 'ClientesController'
-                }
-            }
-        })
-        .state('persistt.clienteDetalhes', {
-            url: '/pedido-cliente',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-clientes/cliente-detalhes.html',
-                    controller: 'ClienteDetalhesController'
-                }
-            }
-        })
-        .state('persistt.novaPessoaFisica', {
-            url: '/pedido-nvpf',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-clientes/novaPessoaFisica.html',
-                    controller: 'NovaPessoaFisicaController'
-                }
-            }
-        })
-        .state('persistt.novaPessoaJuridica', {
-            url: '/pedido-nvpj',
-            views: {
-                'menuContent': {
-                    templateUrl: 'views/app/persistt-clientes/novaPessoaJuridica.html',
-                    controller: 'NovaPessoaJuridicaController'
-                }
-            }
-        })
-
-    //PRODUTOS
-    .state('persistt.produtos', {
-        url: '/produtos',
-        views: {
-            'menuContent': {
-                templateUrl: 'views/app/persistt-produtos.html',
-                controller: 'ProdutosController'
-            }
-        }
-    })
-
-    //CONFIGURAÇÕES
-    .state('persistt.configuracoes', {
-        url: '/configuracoes',
-        views: {
-            'menuContent': {
-                templateUrl: 'views/app/persistt-configuracoes.html',
-                controller: 'ConfiguracoesController'
-            }
-        }
-    })
-
 
     ;
 

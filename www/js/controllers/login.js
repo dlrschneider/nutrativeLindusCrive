@@ -1,6 +1,6 @@
-app.controller('LoginController', function ($scope, $state, reqServer, infoLogin, $ionicLoading, $ionicModal, quantidadeTab, $localStorage) {
+app.controller('LoginController', function ($scope, $state, reqServer, infoLogin, $ionicLoading, $ionicModal, $localStorage) {
 
-    $ionicModal.fromTemplateUrl('./views/app/modal-simples.html', {
+    $ionicModal.fromTemplateUrl('./views/modal-simples.html', {
         scope: $scope
     }).then(function (modal) {
         $scope.modal = modal;
@@ -49,8 +49,6 @@ app.controller('LoginController', function ($scope, $state, reqServer, infoLogin
                     infoLogin.setSen($scope.login.senha);
 
                     $state.go('menu.home');
-
-                    quantidadeTab.vSideMenu(0);
 
                     if ($localStorage.primeiroLoginBV === undefined) {
 

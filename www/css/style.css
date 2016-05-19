@@ -1,3 +1,36 @@
+/*
+as cores base do site/sistema/mobile:
+#F77E2D - laranja
+#FFF- branco
+#D7CCC9 - cinza
+#3C3F48 - cinza escuro
+*/
+
+.ftLeft {
+    float: left;
+}
+
+.ftRight {
+    float: right;
+}
+
+.truncar {
+    position: absolute;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.nav-bar-title span {
+    color: #fff !important;
+}
+
+.bar-top-color {
+    background-color: #F77E2D;
+}
+
 .sm-calendario {
     background-color: #23262a;
 }
@@ -11,8 +44,8 @@
 }
 
 .e-plus {
-    border-color: #128ef7;
-    background-color: #128ef7;
+    border-color: #F77E2D;
+    background-color: #F77E2D;
     border-radius: 50%;
     width: 55px;
     height: 55px;
@@ -96,4 +129,48 @@
 
 .miniCalendarioDiasSec {
 	color: #444 !important;
+}
+.tb-home {
+    width: 100%;
+}
+
+.tb-home td {
+    width: 50%;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.tb-home th {
+    font-size: 12px;
+    width: 50%;
+}
+
+.pdT6 {
+    padding-top: 6px;
+}
+
+.hm-resumoDiario {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.hm-atualizacoes {
+    padding: 15px 0px;
+}
+
+.hm-noticia {
+    padding: 15px 0px;
+}
+
+.hm-noticia span {
+    color: #888;
+}
+
+.hm-noticia p {
+    margin-top: 5px;
+}
+
+.hm-noticia a {
+    color: dodgerblue;
+    text-decoration: underline;
 }

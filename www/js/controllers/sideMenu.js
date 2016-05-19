@@ -1,10 +1,26 @@
-app.controller('SideMenuController', function ($scope, $ionicSideMenuDelegate, $state, htmlFilter, datasService, $ionicLoading, reqServer, infoLogin, nomeMes, formataDias) {
+app.controller('SideMenuController', function ($scope, $ionicSideMenuDelegate, $state, htmlFilter, datasService, $ionicLoading, reqServer, infoLogin, nomeMes, formataDias, $localStorage) {
     $scope.toggleLeft = function () {
         $ionicSideMenuDelegate.toggleLeft();
     };
 
     $scope.nomeUsu = infoLogin.getDsNm();
+    
+    $localStorage.peso = 59.8;
+    $localStorage.altura = 1.75;
+    $localStorage.calDiariaTotal = 1300;
+    $localStorage.calConsumidas = 500;
+    $localStorage.sexo = "H";
+    $localStorage.idade = 20;
+    $localStorage.fatorDeAtividade = 1.2;
+//    O fator de atividade é o seguinte:
+//
+//    Pessoas sedentárias: 1.2
+//    Atividade ligeira (1 a 3 vezes por semana): 1.375
+//    Atividade moderada (3 a 5 vezes por semana): 1.55
+//    Atividade intensa (6 a 7 vezes por semana): 1.725
+//    Atividade extremamente alta (atletas profissionais): 1.9
 
+    
     $scope.logout = function () {
         $ionicLoading.show({
             template: '<span style="position:relative;bottom:7px;"></span><ion-spinner icon="dots" style="fill: #bbb; stroke: #bbb;position:relative;bottom:-5px;"></ion-spinner>'

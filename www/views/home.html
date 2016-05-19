@@ -11,22 +11,74 @@
     </div>
 
     <ion-content style="padding: 15px;">
-
-        <h5>Calorias diárias</h5><span>1300 cal</span>
         
-        <h5>Calorias Restantes</h5><span>890 cal</span>
+        <div class="hm-resumoDiario">
+            
+            <h5>Resumo Diário</h5>
 
-        <h5>IMC </h5><span>21 (Peso ideal)</span>
+            <table class="tb-home">
+                <tr>
+                    <th><span class="ftLeft">Calorias diárias</span></th>
+                    <th><span class="ftRight">Calorias Restantes</span></th>
+                </tr>
+                <tr>
+                    <td><span class="ftLeft">{{calDiariaTotal}} cal</span></td>
+                    <td><span class="ftRight">{{calRestantesDia}} cal</span></td>
+                </tr>
+                <tr>
+                    <th class="pdT6"><span class="ftLeft">IMC</span></th>
+                </tr>
+                <tr>
+                    <td><span class="ftLeft">{{imc}} ({{msgImc}})</span></td>
+                </tr>
+            </table>
 
-        <h4>TMB</h4>
+            <h5>Cálculo de TMB</h5>
 
-        <h5>Metabolismo base </h5><span>1613 cal</span>
-
-        <h5>Calorias necessárias para manter o peso </h5><span>1936 cal</span>
-
-        <h5>Calorias indicadas para emagrecer </h5><span>1646 cal</span>
-
-        <h5>Calorias indicadas para engordar </h5><span>2226 cal</span>
+            <table class="tb-home">
+                <tr>
+                    <th><span class="ftLeft">Metabolismo base</span></th>
+                    <th><span class="ftRight">Calorias para manter o peso</span></th>
+                </tr>
+                <tr>
+                    <td><span class="ftLeft">{{tmb}} cal</span></td>
+                    <td><span class="ftRight">{{calManterPeso}} cal</span></td>
+                </tr>
+                <tr>
+                    <th class="pdT6"><span class="ftLeft">Calorias para emagrecer</span></th>
+                    <th class="pdT6"><span class="ftRight">Calorias para engordar</span></th>
+                </tr>
+                <tr>
+                    <td><span class="ftLeft">{{calEmagrecer}} cal</span></td>
+                    <td><span class="ftRight">{{calEngordar}} cal</span></td>
+                </tr>
+            </table>
+            
+        </div>
+        
+        <div class="hm-atualizacoes">
+            <h4>Últimas atualizações</h4>
+            
+            <div class="hm-noticia">
+                <h5>A importância da alimentação balanceada. A importância da alimentação balanceada.</h5>
+                <span>Thiago Naud</span>
+                <span> - </span>
+                <span>16/05/2016</span>
+                <p>Hoje vamos ver a importancia da alimentação em inglês pa só os bons entende. Cell padding specifies the space between the cell content and its borders. If you do not specify a padding, the table cells will be displayed without padding. To set the padding, use the CSS padding property. Table headings are defined with the tag. By default, all major browsers display table headings as bold and centered...
+                </p>
+                <a ui-sref="#">Visualizar</a>
+            </div>
+            
+            <div class="hm-noticia">
+                <h5>A importância da alimentação balanceada.</h5>
+                <span>Thiago Naud</span>
+                <span> - </span>
+                <span>16/05/2016</span>
+                <p>Hoje vamos ver a importancia da alimentação em inglês pa só os bons entende. Cell padding specifies the space between the cell content and its borders. If you do not specify a padding, the table cells will be displayed without padding. To set the padding, use the CSS padding property. Table headings are defined with the tag. By default, all major browsers display table headings as bold and centered...
+                </p>
+                <a ui-sref="#">Visualizar</a>
+            </div>
+        </div>
 
     </ion-content>
 </ion-view>

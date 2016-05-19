@@ -2,15 +2,6 @@ body {
     cursor: url('http://ionicframework.com/img/finger.png'), auto;
 }
 
-.truncar {
-    position: absolute;
-    max-width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -o-text-overflow: ellipsis;
-}
-
 .pdListInfo {
     float: left;
     width: 66%;

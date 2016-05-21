@@ -1,9 +1,17 @@
 /*
 as cores base do site/sistema/mobile:
-#F77E2D - laranja
+#FF6347 - laranja
 #FFF- branco
 #D7CCC9 - cinza
-#3C3F48 - cinza escuro
+#454545 - cinza escuro
+
+
+
+
+Cores carboidratos diarios do calendário:
+#FF5D5D  - vermelho
+#F3DA43 - laranja
+#93DA93 - verde
 */
 
 .ftLeft {
@@ -28,11 +36,31 @@ as cores base do site/sistema/mobile:
 }
 
 .bar-top-color {
-    background-color: #F77E2D;
+    background-color: #FF6347;
+}
+
+ion-side-menu ion-item.item {
+    border-color: #555;
+}
+
+ion-side-menu ion-content {
+    background-color: #454545;
+}
+
+ion-side-menu ion-item.item .item-content {
+    background-color: #454545;
+}
+
+ion-side-menu ion-item.item .menu-text {
+    color: #fff;
+}
+
+.nmSideMenu .message {
+    color: #aaa;
 }
 
 .sm-calendario {
-    background-color: #23262a;
+    background-color: #454545;
 }
 
 .sm-calendario>a {
@@ -40,15 +68,15 @@ as cores base do site/sistema/mobile:
 }
 
 .sm-calendario h2 {
-    color: #C7C7C7;
+    color: #fff;
 }
 
 .e-plus {
-    border-color: #F77E2D;
-    background-color: #F77E2D;
+    border-color: #FF6347;
+    background-color: #FF6347;
     border-radius: 50%;
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     position: absolute;
     right: 20px;
     bottom: 20px;
@@ -66,12 +94,12 @@ as cores base do site/sistema/mobile:
     width: 100%;
     height: 100%;
     text-align: center;
-    line-height: 1.45;
+    line-height: 1.3;
 }
 
 .e-icon i {
     text-align: center;
-    font-size: 36px;
+    font-size: 32px;
     color: #fff;
 }
 
@@ -82,11 +110,11 @@ as cores base do site/sistema/mobile:
 
 .dataAtualMiniCalendario span {
 	font-size: 12px;
-    color: #C7C7C7;
+    color: #ddd;
 }
 
 .dataAtualMiniCalendario span:hover {
-	color: #B1B1B1;
+	color: #ccc;
 	cursor: pointer;
 }
 
@@ -102,14 +130,14 @@ as cores base do site/sistema/mobile:
 }
 
 .miniCalendario strong {
-    color: #777;
+    color: #ddd;
 }
 
 .miniCalendario td {
 	text-align: center;
 	padding: 1px 0px;
 	position: relative;
-    color: #ccc;
+    color: #fff;
 }
 
 .miniCalendarioHoje {
@@ -117,7 +145,7 @@ as cores base do site/sistema/mobile:
 }
 
 .miniCalendarioHoje div {
-	background-color: #FF5D5D;
+	background-color: #FF6347;
 	border-radius: 2px;
 	position: absolute;
 	width: 86%;
@@ -128,7 +156,7 @@ as cores base do site/sistema/mobile:
 }
 
 .miniCalendarioDiasSec {
-	color: #444 !important;
+	color: #888 !important;
 }
 .tb-home {
     width: 100%;

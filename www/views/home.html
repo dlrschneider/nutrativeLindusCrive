@@ -59,25 +59,20 @@
         <div class="hm-atualizacoes">
             <h4>Últimas atualizações</h4>
             
-            <div class="hm-noticia">
-                <h5>A importância da alimentação balanceada. A importância da alimentação balanceada.</h5>
-                <span>Thiago Naud</span>
-                <span> - </span>
-                <span>16/05/2016</span>
-                <p>Hoje vamos ver a importancia da alimentação em inglês pa só os bons entende. Cell padding specifies the space between the cell content and its borders. If you do not specify a padding, the table cells will be displayed without padding. To set the padding, use the CSS padding property. Table headings are defined with the tag. By default, all major browsers display table headings as bold and centered...
-                </p>
-                <a ui-sref="#">Visualizar</a>
-            </div>
-            
-            <div class="hm-noticia">
-                <h5>A importância da alimentação balanceada.</h5>
-                <span>Thiago Naud</span>
-                <span> - </span>
-                <span>16/05/2016</span>
-                <p>Hoje vamos ver a importancia da alimentação em inglês pa só os bons entende. Cell padding specifies the space between the cell content and its borders. If you do not specify a padding, the table cells will be displayed without padding. To set the padding, use the CSS padding property. Table headings are defined with the tag. By default, all major browsers display table headings as bold and centered...
-                </p>
-                <a ui-sref="#">Visualizar</a>
-            </div>
+            <ion-list>
+                <div class="hm-noticia" ng-repeat="noticia in noticias | limitTo: qtdNoticias">
+                    <h5>{{noticia[1]}}</h5>
+                    <span>{{noticia[0]}}</span>
+                    <span> - </span>
+                    <span>{{noticia[3] | date:'dd/MM/yyyy'}}</span>
+                    <p>{{noticia[2]}}
+                    </p>
+                    <a ui-sref="#">Visualizar</a>
+                </div>
+            </ion-list>
+
+            <ion-infinite-scroll on-infinite="carregaMaisNoticias()" distance="5%">
+            </ion-infinite-scroll>
         </div>
 
     </ion-content>

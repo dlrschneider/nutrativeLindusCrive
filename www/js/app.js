@@ -71,8 +71,9 @@ app.config(function ($ionicConfigProvider, $ionicFilterBarConfigProvider, $httpP
     
 });
 
-
-
+app.run(function(createDB) {
+   createDB.go(); 
+});
 
 app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $stateProvider

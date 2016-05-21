@@ -1,5 +1,14 @@
-app.controller('HomeController', function ($scope, $ionicModal, $localStorage, infoLogin) {
+app.controller('HomeController', function ($scope, $ionicModal, $localStorage, infoLogin, selectDB, insertDB) {
+      
+    $scope.noticias = selectDB.noticia();
+    $scope.qtdNoticias = 2;
     
+    $scope.carregaMaisNoticias = function () {
+        if ($scope.noticias.length > $scope.qtdNoticias) {
+            $scope.qtdNoticias += 3;
+        }
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+    };
     
     $scope.peso = $localStorage.peso;
     $scope.altura = $localStorage.altura;

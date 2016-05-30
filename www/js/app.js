@@ -113,7 +113,27 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
+    .state('menu.receita', {
+        url: "/receita",
+        views: {
+            'menuContent': {
+                templateUrl: "views/receita.html",
+                controller: 'ReceitaController'
+            }
+        }
+    })
+
+    .state('menu.alimentacao', {
+        url: "/alimentacao",
+        views: {
+            'menuContent': {
+                templateUrl: "views/alimentacao.html",
+                controller: 'AlimentacaoController'
+            }
+        }
+    })
+
     ;
 
-    $urlRouterProvider.otherwise('/menu/home');
+    $urlRouterProvider.otherwise('/menu/alimentacao');
 });

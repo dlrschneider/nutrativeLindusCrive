@@ -202,3 +202,114 @@ ion-side-menu ion-item.item .menu-text {
     color: dodgerblue;
     text-decoration: underline;
 }
+
+.rc-titulo {
+    margin-top: 15px;
+    overflow: auto;
+}
+
+.rc-titulo h5 {
+    float: left;
+}
+
+.rc-titulo span {
+    float: right;
+    font-size: 12px;
+    line-height: 3.0;
+}
+
+.rc-listaAlimentos {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.rc-listaAlimentos td {
+    font-size: 13px;
+}
+
+.rc-listaAlimentos td:nth-child(1) {
+    width: 50%;
+}
+
+.rc-listaAlimentos td:nth-child(2), .rc-listaAlimentos td:nth-child(3) {
+    width: 20%;
+}
+
+.rc-listaAlimentos td:nth-child(4) {
+    width: 10%;
+    font-size: 20px;
+}
+
+.rc-listaAlimentos i:active {
+    background-color: #eee;
+    color: #000;
+}
+
+.rc-listaAlimentos i {
+    padding: 0px 5px;
+    position: relative;
+    top: 5px;
+    float: right;
+}
+
+.al-topo {
+    padding: 6px;
+    background-color: #ddd;
+    border-bottom: 1px solid #ccc;
+	box-shadow: 1px 1px 3px #ddd;
+	-moz-box-shadow: 1px 1px 3px #ddd;
+	-webkit-box-shadow: 1px 1px 3px #ddd;
+    overflow: auto;
+}
+
+.al-topo i {
+    width: 10%;
+    display: block;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+}
+
+.al-topo i:nth-child(1) {
+    border-right: 1px solid #ccc; 
+}
+
+.al-topo i:nth-child(3) {
+    border-left: 1px solid #ccc; 
+}
+
+.al-topo i:active {
+    background-color: #cfcfcf;
+}
+
+.al-topo span {
+    width: 80%;
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+.al-listaAlimentos {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.al-listaAlimentos tr {
+    height: 30px;
+}
+
+.al-listaAlimentos td {
+    font-size: 13px;
+}
+
+.al-listaAlimentos td:nth-child(1) {
+    width: 50%;
+}
+
+.al-listaAlimentos td:nth-child(2), .rc-listaAlimentos td:nth-child(3) {
+    width: 20%;
+}
+
+.al-listaAlimentos td:nth-child(4) {
+    width: 10%;
+}

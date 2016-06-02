@@ -31,6 +31,10 @@ Cores carboidratos diarios do calendário:
     -o-text-overflow: ellipsis;
 }
 
+.back-button i {
+    color: #fff !important;
+}
+
 .nav-bar-title span {
     color: #fff !important;
 }
@@ -312,4 +316,15 @@ ion-side-menu ion-item.item .menu-text {
 
 .al-listaAlimentos td:nth-child(4) {
     width: 10%;
+}
+
+.maa-alimento {
+    padding: 5px 10px;
+}
+
+.maa-alimento button {
+    min-height: 35px !important;
+    height: 35px;
+    text-align: left;
+    line-height: 1;
 }

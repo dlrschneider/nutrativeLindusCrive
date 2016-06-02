@@ -5,7 +5,7 @@
     </ion-nav-title>
 
     <div class="e-plus">
-        <a class="e-icon" ng-click="adicionarAlimento()">
+        <a class="e-icon" ng-click="$state.go('menu.listaAlimentos')">
             <i class="icon ion-android-add"></i>
         </a>
     </div>
@@ -67,7 +67,6 @@
                     <span>{{noticia[3] | date:'dd/MM/yyyy'}}</span>
                     <p>{{noticia[2]}}
                     </p>
-                    <a ui-sref="#">Visualizar</a>
                 </div>
             </ion-list>
 

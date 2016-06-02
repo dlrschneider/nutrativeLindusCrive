@@ -17,6 +17,23 @@ app.service('insertDB', function () {
             };
 
             return;
+        }, 
+        
+        historicoAlimentacao: function (args) {
+            
+            db.transaction(function (t) {
+                t.executeSql('insert into historicoAlimentacao ("idAlimento", "quantidade", "dataCadastro") values (?, ?, ?);', args, OkDB, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            function OkDB(e) {
+                return;
+            };
+
+            return;
         }
     }
 });

@@ -1,0 +1,26 @@
+<ion-view>
+
+    <ion-nav-buttons side="right">
+        <button menu-toggle="right" style="color: #fff;" class="button button-icon icon ion-ios-search-strong la-search" ng-click="showFilterBar()"></button>
+    </ion-nav-buttons>
+
+    <ion-nav-title>
+        <span>Alimentos</span>
+    </ion-nav-title>
+    <ion-content>
+        
+        <div class="row" ng-hide="alimentos.length>0">
+            <h5 style="text-align: center; width: 100%;">Nenhum produto encontrado</h5>
+        </div>
+        
+        <ion-list>
+            <ion-item ng-repeat="alimento in alimentos | limitTo: qtdItens" ng-click="selecionaAlimento(alimento)">
+                <h2>{{ alimento[2] }}</h2>
+            </ion-item>
+        </ion-list>
+
+        <ion-infinite-scroll on-infinite="loadMore()" distance="5%">
+        </ion-infinite-scroll>
+        
+    </ion-content>
+</ion-view>

@@ -1,6 +1,4 @@
-app.controller('ReceitaController', function($scope) {
+app.controller('ReceitaController', function($scope, $state) {
     
-    $scope.adicionarAlimento = function () {
-    }
-    
+    $scope.$state = $state;
 });

@@ -1,5 +1,6 @@
-app.controller('HomeController', function ($scope, $ionicModal, $localStorage, infoLogin, selectDB, insertDB) {
+app.controller('HomeController', function ($scope, $ionicModal, $localStorage, infoLogin, selectDB, insertDB, $state) {
       
+    $scope.$state = $state;
     $scope.noticias = selectDB.noticia();
     $scope.qtdNoticias = 2;
     
@@ -51,30 +52,5 @@ app.controller('HomeController', function ($scope, $ionicModal, $localStorage, i
     $scope.calEmagrecer = $scope.calEmagrecer.toFixed(2);
     $scope.calEngordar = ($scope.tmb * $scope.fatorDeAtividade) * 1.15;
     $scope.calEngordar = $scope.calEngordar.toFixed(2);
-    
-    $ionicModal.fromTemplateUrl('./views/modal-simples.html', {
-        scope: $scope
-    }).then(function (modal) {
-        $scope.modal = modal;
-    });
-
-    $scope.openModal = function () {
-        $scope.modal.show()
-    };
-
-    $scope.closeModal = function () {
-        $scope.modal.hide();
-    };
-
-    $scope.$on('$destroy', function () {
-        $scope.modal.remove();
-    });
-
-    $scope.adicionarAlimento = function () {
-        
-        $scope.mensagemModalSimples = "Bem vindo " + infoLogin.getDsNm();
-        $scope.botaoModalSimples = "Começar!";
-        $scope.openModal();
-    }
 
 });

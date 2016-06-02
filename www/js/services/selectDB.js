@@ -28,6 +28,37 @@ app.service('selectDB', function () {
             };
 
             return resp;
+        },
+        
+        alimento: function() {
+            var resp = [];
+            
+            db.transaction(function (t) {
+                t.executeSql('SELECT * FROM alimento;', [],
+                    function (t, result) {
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var r = result.rows.item(i);
+
+                            var linha = [];
+                            linha.push(r['idalimento']);
+                            linha.push(r['idcategoria']);
+                            linha.push(r['nome']);
+                            linha.push(r['carboidrato']);
+                            linha.push(r['proteina']);
+                            linha.push(r['lipidio']);
+                            linha.push(r['dataCadastro']);
+                            
+                            resp.push(linha);
+        
+                        }
+                    }, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            return resp;
         }
     }
 });

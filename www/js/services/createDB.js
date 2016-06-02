@@ -54,6 +54,13 @@ app.service('createDB', function () {
                                     'descricaoNoticia text NOT NULL,' +
                                     'dataCadastro long NOT NULL' +
                                     ')');
+                    
+                    t.executeSql('CREATE TABLE IF NOT EXISTS historicoAlimentacao (' +
+                                    'id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,' +
+                                    'idAlimento integer NOT NULL,' +
+                                    'quantidade integer NOT NULL,' +
+                                    'dataCadastro long NOT NULL' +
+                                    ')');
                 });
                 
                 return db;

@@ -1,6 +1,7 @@
 app.controller('ListaAlimentosController', function($scope, $ionicFilterBar, selectDB, $ionicModal, $ionicHistory, insertDB) {
     
     $scope.alimentos = selectDB.alimento();
+    var ultimaDietaHistorico = selectDB.ultimaDietaHistorico();
     
     $scope.showFilterBar = function () {
         filterBarInstance = $ionicFilterBar.show({
@@ -41,23 +42,17 @@ app.controller('ListaAlimentosController', function($scope, $ionicFilterBar, sel
     });
     
     $scope.selecionaAlimento = function (alimento) {
-        $scope.idAlimentoModal = alimento[0];
-        $scope.nomeAlimentoModal = alimento[2];
-        $scope.openModal();
-    }
-    
-    $scope.adicionaHistoricoAlimento = function (qtd) {
         
-        var dtEm = new Date().getTime();
-        var args = [];
+        var dietaHistoricoAlimentacao = [];
         
-        args.push($scope.idAlimentoModal);
-        args.push(qtd);
-        args.push(dtEm);
-        
-        insertDB.historicoAlimentacao(args);
-        
-        $scope.closeModal();
+        dietaHistoricoAlimentacao.push( ultimaDietaHistorico[0][0] );
+        dietaHistoricoAlimentacao.push( alimento[2] );
+        dietaHistoricoAlimentacao.push( new Date().getTime());
+
+        insertDB.dietaHistoricoAlimentacao(dietaHistoricoAlimentacao);
         $ionicHistory.goBack();
     }
+    
+    $scope.openModal();
+    
 });

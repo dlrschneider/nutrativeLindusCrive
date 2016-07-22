@@ -17,78 +17,22 @@
     <ion-content>
         
         <div class="al-topo">
-            <i class="ion-arrow-left-b"></i>
-            <span>31 de abril de 2016</span>
-            <i class="ion-arrow-right-b"></i>
+            <i class="ion-arrow-left-b" ng-click="setaDataTopo('-')"></i>
+            <span ng-bind="dataTopo"></span>
+            <i class="ion-arrow-right-b" ng-click="setaDataTopo('+')"></i>
         </div>
         
         <div style="padding: 0px 15px 15px 15px;">
             
-            <div class="rc-titulo">
+            <div class="rc-titulo" style="display:none;">
                 <h5>Total</h5>
                 <span>Calorias - <strong>1348 cal</strong></span>
             </div>
             
             <table class="al-listaAlimentos">
-                <tr>
-                    <td>- Sopa de ervilha</td>
-                    <td>200g</td>
-                    <td>154 cal</td>
-                    <td>13:21</td>
-                </tr>
-                <tr>
-                    <td>- Bolo de chuva</td>
-                    <td>300g</td>
-                    <td>153 cal</td>
-                    <td>13:21</td>
-                </tr>
-                <tr>
-                    <td>- Feijão</td>
-                    <td>200g</td>
-                    <td>154 cal</td>
-                    <td>13:22</td>
-                </tr>
-                <tr>
-                    <td>- Arroz</td>
-                    <td>40g</td>
-                    <td>100 cal</td>
-                    <td>13:22</td>
-                </tr>
-                <tr>
-                    <td>- Bacon frito</td>
-                    <td>100g</td>
-                    <td>152 cal</td>
-                    <td>13:22</td>
-                </tr>
-                <tr>
-                    <td>- Brócolis</td>
-                    <td>50g</td>
-                    <td>56 cal</td>
-                    <td>15:38</td>
-                </tr>
-                <tr>
-                    <td>- Alface</td>
-                    <td>50g</td>
-                    <td>55 cal</td>
-                    <td>15:38</td>
-                </tr>
-                <tr>
-                    <td>- Pão de ló</td>
-                    <td>200g</td>
-                    <td>152 cal</td>
-                    <td>19:08</td>
-                </tr>
-                <tr>
-                    <td>- Ovo de codorna</td>
-                    <td>40g</td>
-                    <td>103 cal</td>
-                    <td>19:08</td>
-                </tr>
-                <tr>
-                    <td>- Leite com chocolate</td>
-                    <td>100g</td>
-                    <td>156 cal</td>
-                    <td>22:53</td>
+                <tr ng-repeat="ha in historicoAlimentos">
+                    <td>- {{ha[0]}}</td>
+                    <td>{{ha[1]}}</td>
                 </tr>
             </table>
             

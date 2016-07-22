@@ -3,6 +3,7 @@ app.service('datasService', function () {
     var data = new Date();
     var dataAgenda = new Date();
     var dataMudaDataMiniCal = new Date();
+    var dataAlimentacao = new Date();
     
     return {
         getData: function () {
@@ -14,9 +15,10 @@ app.service('datasService', function () {
         getDataMudaDataMiniCal: function () {
             return dataMudaDataMiniCal;
         },
+        getDataAlimentacao: function (v) {
+            return dataAlimentacao;
+        },
         
-        
-        // set DataAgenda
         setDateDataAgenda: function (v) {
             dataAgenda.setDate(v);
         },
@@ -27,8 +29,6 @@ app.service('datasService', function () {
             dataAgenda.setFullYear(v);
         },
         
-        
-        // set DataMudaDataMiniCal
         setDateDataMudaDataMiniCal: function (v) {
             dataMudaDataMiniCal.setDate(v);
         },
@@ -37,6 +37,20 @@ app.service('datasService', function () {
         },
         setFullYearDataMudaDataMiniCal: function (v) {
             dataMudaDataMiniCal.setFullYear(v);
+        },
+        
+        setDataAlimentacao: function (ano, mes, dia) {
+            dataAlimentacao.setFullYear(ano);
+            dataAlimentacao.setMonth(mes);
+            dataAlimentacao.setDate(dia);
+        },
+        aumentaDataAlimentacao: function () {
+            dataAlimentacao.setTime(dataAlimentacao.getTime() + 86400000);
+        },
+        diminuiDataAlimentacao: function () {
+            dataAlimentacao.setTime(dataAlimentacao.getTime() - 86400000);
         }
+        
+        
     }
 });

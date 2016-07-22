@@ -125,6 +125,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
     .state('menu.alimentacao', {
         url: "/alimentacao",
+        cache: false,
         views: {
             'menuContent': {
                 templateUrl: "views/alimentacao.html",

@@ -15,8 +15,6 @@
 
         <ion-content>
 
-
-
             <ion-list>
                 <ion-item class="nmSideMenu item" nav-clear menu-close ui-sref="persistt.home">
                     <h2 class="greeting">{{nomeUsu}}</h2>
@@ -42,7 +40,7 @@
                                 <th><strong>S</strong></th>
                             </tr>
                         </thead>
-                        <tbody ng-bind-html="corpoMiniCalendario | html"></tbody>
+                        <tbody id="divCorpoMiniCalendario" ng-bind-html="corpoMiniCalendario | html"></tbody>
                     </table>
 
                 </ion-item>

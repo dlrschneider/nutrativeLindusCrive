@@ -1,4 +1,5 @@
 app.controller('SideMenuController', function ($scope, $ionicSideMenuDelegate, $state, htmlFilter, datasService, $ionicLoading, reqServer, infoLogin, nomeMes, formataDias, $localStorage) {
+    
     $scope.toggleLeft = function () {
         $ionicSideMenuDelegate.toggleLeft();
     };
@@ -181,6 +182,20 @@ app.controller('SideMenuController', function ($scope, $ionicSideMenuDelegate, $
         $scope.corpoMiniCalendario = montaMiniCalendario;
 
     }
+    
+    $("#divCorpoMiniCalendario").on("click", "td", function (event) {
+        var id = this.id;
+
+        var idSep = id.split("_");
+        var ano = parseInt(idSep[1]);
+        var mes = parseInt(idSep[2]) - 1;
+        var dia = parseInt(idSep[3]);
+
+        datasService.setDataAlimentacao(ano, mes, dia);
+        
+        $state.go('menu.alimentacao', {}, {reload: true});
+        $ionicSideMenuDelegate.toggleLeft();
+    });
 
     $scope.setaDataMiniCal();
 

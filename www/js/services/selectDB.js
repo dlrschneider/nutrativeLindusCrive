@@ -59,6 +59,62 @@ app.service('selectDB', function () {
             };
 
             return resp;
+        },
+        
+        historicoAlimentacao: function(dataInicio, dataFim) {
+            var resp = [];
+            
+            db.transaction(function (t) {
+                t.executeSql('SELECT * FROM historicoAlimentacao where dataCadastro > '+dataInicio+' and dataCadastro < '+dataFim+';', [],
+                    function (t, result) {
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var r = result.rows.item(i);
+
+                            var dc = new Date(r['dataCadastro']);
+                            var hora = dc.getHours() < 10 ? "0" + dc.getHours() : dc.getHours();
+                            var minuto = dc.getMinutes() < 10 ? "0" + dc.getMinutes() : dc.getMinutes();
+                            
+                            var linha = [];
+                            linha.push(r['alimento']);
+                            linha.push(hora+":"+minuto);
+
+                            resp.push(linha);
+                        }
+                    }, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            return resp;
+        },
+        
+        ultimaDietaHistorico: function() {
+            var resp = [];
+            
+            db.transaction(function (t) {
+                t.executeSql('SELECT *, max(dataCadastro) FROM dietaHistorico;', [],
+                    function (t, result) {
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var r = result.rows.item(i);
+                            
+                            var linha = [];
+                            linha.push(r['iddieta_historico']);
+                            linha.push(r['iddieta']);
+                            linha.push(r['idcliente']);
+                            linha.push(r['dataCadastro']);
+
+                            resp.push(linha);
+                        }
+                    }, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            return resp;
         }
     }
 });

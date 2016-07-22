@@ -310,12 +310,8 @@ ion-side-menu ion-item.item .menu-text {
     width: 50%;
 }
 
-.al-listaAlimentos td:nth-child(2), .rc-listaAlimentos td:nth-child(3) {
-    width: 20%;
-}
-
-.al-listaAlimentos td:nth-child(4) {
-    width: 10%;
+.al-listaAlimentos td:nth-child(2) {
+    text-align: right;
 }
 
 .maa-alimento {

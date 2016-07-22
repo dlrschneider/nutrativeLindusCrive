@@ -6,29 +6,22 @@ app.service('createDB', function () {
             if (openDB) {
                 db = openDB('nutrativeDB', '1.0', 'Nutrative DataBase', 5 * 1024 * 1024); // 5MB
                 db.transaction(function (t) {
-
-                    t.executeSql('CREATE TABLE IF NOT EXISTS categoria (' +
-                                    'idCategoria integer NOT NULL PRIMARY KEY,' +
-                                    'nome text NOT NULL,' +
-                                    'ativo text,' +
-                                    'dataCadastro long NOT NULL' +
-                                    ')');
                     
                     t.executeSql('CREATE TABLE IF NOT EXISTS alimento (' +
                                     'idalimento integer NOT NULL PRIMARY KEY,' +
-                                    'idcategoria integer NOT NULL,' +
                                     'nome text NOT NULL,' +
                                     'carboidrato decimal(6,2) NOT NULL,' +
                                     'proteina decimal(6,2) NOT NULL,' +
                                     'lipidio decimal(6,2) NOT NULL,' +
+                                    'ativo integer NOT NULL,' +
                                     'dataCadastro long NOT NULL' +
                                     ')');
 
                     t.executeSql('CREATE TABLE IF NOT EXISTS dieta (' +
                                     'iddieta integer NOT NULL PRIMARY KEY,' +
                                     'idnutricionista integer NOT NULL,' +
-                                    'caloria decimal(6,2),' +
-                                    'ativo text, ' +
+                                    'nome text NOT NULL,' +
+                                    'ativo text NOT NULL, ' +
                                     'dataCadastro long NOT NULL' +
                                     ')');
                     
@@ -46,19 +39,19 @@ app.service('createDB', function () {
                                     'dataCadastro long NOT NULL' +
                                     ')');
                     
+                    t.executeSql('CREATE TABLE IF NOT EXISTS historicoAlimentacao (' +
+                                    'idHistoricoAlimentacao INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,' +
+                                    'idDietaHistorico integer NOT NULL,' +
+                                    'alimento text NOT NULL,' +
+                                    'dataCadastro long NOT NULL' +
+                                    ')');
+                    
                     t.executeSql('CREATE TABLE IF NOT EXISTS noticia (' +
                                     'idNoticia integer NOT NULL PRIMARY KEY,' + 
                                     'idNutricionista integer NOT NULL,' +
                                     'nomeNutricionista text NOT NULL,' +
                                     'tituloNoticia text NOT NULL,' +
                                     'descricaoNoticia text NOT NULL,' +
-                                    'dataCadastro long NOT NULL' +
-                                    ')');
-                    
-                    t.executeSql('CREATE TABLE IF NOT EXISTS historicoAlimentacao (' +
-                                    'id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,' +
-                                    'idAlimento integer NOT NULL,' +
-                                    'quantidade integer NOT NULL,' +
                                     'dataCadastro long NOT NULL' +
                                     ')');
                 });

@@ -1,0 +1,34 @@
+<ion-view>
+
+    <ion-nav-title>
+        <span>Notas</span>
+    </ion-nav-title>
+
+    <ion-nav-buttons side="right">
+        <button menu-toggle="right" style="color: #fff;" class="button button-icon icon ion-ios-plus-empty la-search" ng-click="openModal()"></button>
+    </ion-nav-buttons>
+
+    <div class="e-plus">
+        <a class="e-icon" ng-click="addAlimentoTp1()">
+            <i class="icon ion-android-add"></i>
+        </a>
+    </div>
+
+    <ion-content style="padding: 0px 15px;">
+        
+        <div class="hm-atualizacoes">
+            <ion-list>
+                <div class="hm-noticia" ng-repeat="n in notas">
+                    <span>{{n[3] | date:'dd/MM/yyyy'}}</span>
+                    <p>{{n[2]}}
+                    </p>
+                </div>
+            </ion-list>
+        </div>
+        
+        <div style="width: 100%; text-align: center; color: #777; font-size: 13px;" ng-if="notas.length === 0">
+            Clique no ícone '+' para cadastrar uma nota.
+        </div>
+        
+    </ion-content>
+</ion-view>

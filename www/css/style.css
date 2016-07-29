@@ -307,7 +307,7 @@ ion-side-menu ion-item.item .menu-text {
 }
 
 .al-listaAlimentos td:nth-child(1) {
-    width: 50%;
+    width: auto;
 }
 
 .al-listaAlimentos td:nth-child(2) {

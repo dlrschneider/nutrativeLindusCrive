@@ -1,4 +1,4 @@
-app.controller('LoginController', function ($scope, $state, reqServer, infoLogin, $ionicLoading, $ionicModal, $localStorage) {
+app.controller('LoginController', function ($scope, $state, reqServer, infoLogin, $ionicLoading, $ionicModal, $localStorage, $http, $timeout) {
 
     $ionicModal.fromTemplateUrl('./views/modal-simples.html', {
         scope: $scope
@@ -18,56 +18,52 @@ app.controller('LoginController', function ($scope, $state, reqServer, infoLogin
         $scope.modal.remove();
     });
 
-    //    verificaLogin = function () {
-    //        
-    //        $ionicLoading.show({
-    //            template: '<span style="position:relative;bottom:7px;"></span><ion-spinner icon="dots" style="fill: #bbb; stroke: #bbb;position:relative;bottom:-5px;"></ion-spinner>'
-    //        });
-    //        
-    //        if (infoLogin.getDsNm() !== undefined) {
-    //            $state.go('persistt.home');
-    //        }
-    //        
-    //        $ionicLoading.hide();
-    //    }
-    //    
-    //    verificaLogin();
-
     $scope.login = function () {
 
         $ionicLoading.show({
             template: '<span style="position:relative;bottom:7px;"></span><ion-spinner icon="dots" style="fill: #bbb; stroke: #bbb;position:relative;bottom:-5px;"></ion-spinner>'
         });
-
+        
         if ($scope.login.usuario !== undefined) {
             if ($scope.login.senha !== undefined) {
-
-                if (0 === 0) {
-
-                    infoLogin.setDsNm("Daniel Schneider");
-                    infoLogin.setUsu($scope.login.usuario.trim());
-                    infoLogin.setSen($scope.login.senha);
-
-                    $state.go('menu.home');
-
-                    if ($localStorage.primeiroLoginBV === undefined) {
-
-                        $scope.mensagemModalSimples = "Bem vindo " + infoLogin.getDsNm();
-                        $scope.botaoModalSimples = "Começar!";
+               var dados = {login: $scope.login.usuario, senha: $scope.login.senha};
+               
+                var logou = false;
+               $timeout(function() {
+                   if(!logou) {
+                        $scope.mensagemModalSimples = "Verifique sua conexão com a internet";
+                        $scope.botaoModalSimples = "Tentar novamente";
                         $scope.openModal();
 
-                        $localStorage.primeiroLoginBV = true;
-                    }
+                        $ionicLoading.hide();
+                   }
+               }, 8000);
+                
+               $http.post('http://localhost/nutrative/index.php/ws/app2site/login/'+ $scope.login.usuario +'/'+ $scope.login.senha).then(function (resp) {
 
-                    $ionicLoading.hide();
-                } else {
-                    $scope.mensagemModalSimples = resp2.data.result.msgErr;
-                    $scope.botaoModalSimples = "Tentar novamente";
-                    $scope.openModal();
+                  logou = true;
+                  infoLogin.setDsNm(resp.data.nome);
+                  infoLogin.setUsu($scope.login.usuario.trim());
+                  infoLogin.setSen($scope.login.senha);
+                  infoLogin.setIdCliente(resp.data.idCliente);
+                  infoLogin.setIdNutricionista(resp.data.idNutricionista);
+                  infoLogin.setAltura(resp.data.altura);
+                  infoLogin.setPeso(resp.data.peso);
+                  
+                  $state.go('menu.home');
 
-                    $ionicLoading.hide();
-                }
+                  $ionicLoading.hide();
 
+                  if ($localStorage.primeiroLoginBV === undefined) {
+
+                      $scope.mensagemModalSimples = "Bem vindo " + infoLogin.getDsNm();
+                      $scope.botaoModalSimples = "Começar!";
+                      $scope.openModal();
+
+                      $localStorage.primeiroLoginBV = true;
+                  }
+                  
+                });
 
             } else {
 

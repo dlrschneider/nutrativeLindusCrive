@@ -29,7 +29,7 @@ app.service('createDB', function () {
                                     'iddieta_alimento integer NOT NULL PRIMARY KEY,' +
                                     'iddieta integer NOT NULL,' +
                                     'idalimento integer NOT NULL,' +
-                                    'dataCadastro long NOT NULL' +
+                                    'turno text NOT NULL' +
                                     ')');
                     
                     t.executeSql('CREATE TABLE IF NOT EXISTS dietaHistorico (' +
@@ -43,7 +43,8 @@ app.service('createDB', function () {
                                     'idHistoricoAlimentacao INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,' +
                                     'idDietaHistorico integer NOT NULL,' +
                                     'alimento text NOT NULL,' +
-                                    'dataCadastro long NOT NULL' +
+                                    'dataCadastro long NOT NULL,' +
+                                    'turno text NOT NULL' +
                                     ')');
                     
                     t.executeSql('CREATE TABLE IF NOT EXISTS noticia (' +
@@ -52,6 +53,13 @@ app.service('createDB', function () {
                                     'nomeNutricionista text NOT NULL,' +
                                     'tituloNoticia text NOT NULL,' +
                                     'descricaoNoticia text NOT NULL,' +
+                                    'dataCadastro long NOT NULL' +
+                                    ')');
+                    
+                    t.executeSql('CREATE TABLE IF NOT EXISTS anotacao (' +
+                                    'idAnotacao integer NOT NULL PRIMARY KEY AUTOINCREMENT,' + 
+                                    'idCliente integer NOT NULL,' +
+                                    'descricao text NOT NULL,' +
                                     'dataCadastro long NOT NULL' +
                                     ')');
                 });

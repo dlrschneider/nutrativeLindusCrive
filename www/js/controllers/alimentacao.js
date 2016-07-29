@@ -1,6 +1,16 @@
-app.controller('AlimentacaoController', function($scope, $state, datasService, nomeMes, selectDB, $timeout) {
+app.controller('AlimentacaoController', function($scope, $state, datasService, nomeMes, selectDB, $timeout, tipoListaRegistroAlimento) {
     
     $scope.$state = $state;
+    
+    $scope.addAlimentoTp1 = function() {
+        $state.go('menu.listaAlimentos');
+        tipoListaRegistroAlimento.setTipo(1);
+    }
+    
+    $scope.addAlimentoTp2 = function() {
+        $state.go('menu.listaAlimentos');
+        tipoListaRegistroAlimento.setTipo(2);
+    }
     
     var dataInicio = new Date(datasService.getDataAlimentacao().getTime());
     dataInicio.setHours(0);

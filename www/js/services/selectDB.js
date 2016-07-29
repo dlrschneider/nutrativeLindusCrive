@@ -76,7 +76,7 @@ app.service('selectDB', function () {
                             
                             var linha = [];
                             linha.push(r['alimento']);
-                            linha.push(hora+":"+minuto);
+                            linha.push(r['turno']);
 
                             resp.push(linha);
                         }
@@ -103,6 +103,61 @@ app.service('selectDB', function () {
                             linha.push(r['iddieta_historico']);
                             linha.push(r['iddieta']);
                             linha.push(r['idcliente']);
+                            linha.push(r['dataCadastro']);
+
+                            resp.push(linha);
+                        }
+                    }, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            return resp;
+        },
+        
+        dietaAlimento: function(turno) {
+            var resp = [];
+            
+            db.transaction(function (t) {
+                t.executeSql('select d.idDieta_alimento, d.idDieta, d.idAlimento, d.turno, a.nome from dietaAlimento D, alimento A where D.idAlimento = A.idAlimento and turno = "'+turno+'";', [],
+                    function (t, result) {
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var r = result.rows.item(i);
+                            
+                            var linha = [];
+                            linha.push(r['iddieta_alimento']);
+                            linha.push(r['iddieta']);
+                            linha.push(r['idalimento']);
+                            linha.push(r['turno']);
+                            linha.push(r['nome']);
+
+                            resp.push(linha);
+                        }
+                    }, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            return resp;
+        },
+        
+        anotacao: function() {
+            var resp = [];
+            
+            db.transaction(function (t) {
+                t.executeSql('SELECT * FROM anotacao order by dataCadastro;', [],
+                    function (t, result) {
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var r = result.rows.item(i);
+                            
+                            var linha = [];
+                            linha.push(r['idAnotacao']);
+                            linha.push(r['idCliente']);
+                            linha.push(r['descricao']);
                             linha.push(r['dataCadastro']);
 
                             resp.push(linha);

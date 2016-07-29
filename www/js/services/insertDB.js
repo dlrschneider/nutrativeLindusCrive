@@ -73,7 +73,7 @@ app.service('insertDB', function () {
         dietaHistoricoAlimentacao: function (args) {
             
             db.transaction(function (t) {
-                t.executeSql('insert into historicoAlimentacao("idDietaHistorico", "alimento", "dataCadastro") values (?, ?, ?);', args, OkDB, erroDB);
+                t.executeSql('insert into historicoAlimentacao("idDietaHistorico", "alimento", "dataCadastro", "turno") values (?, ?, ?, ?);', args, OkDB, erroDB);
             });
 
             function erroDB(e) {
@@ -91,6 +91,40 @@ app.service('insertDB', function () {
             
             db.transaction(function (t) {
                 t.executeSql('insert into noticia values (?, ?, ?, ?, ?, ?);', args, OkDB, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            function OkDB(e) {
+                return;
+            };
+
+            return;
+        },
+        
+        anotacao: function (args) {
+            
+            db.transaction(function (t) {
+                t.executeSql('insert into anotacao ("idCliente", "descricao", "dataCadastro") values (?, ?, ?);', args, OkDB, erroDB);
+            });
+
+            function erroDB(e) {
+                return;
+            };
+
+            function OkDB(e) {
+                return;
+            };
+
+            return;
+        },
+        
+        dietaAlimento: function (args) {
+            
+            db.transaction(function (t) {
+                t.executeSql('insert into dietaAlimento values (?, ?, ?, ?);', args, OkDB, erroDB);
             });
 
             function erroDB(e) {

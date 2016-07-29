@@ -6,13 +6,10 @@ app.controller('SideMenuController', function ($scope, $ionicSideMenuDelegate, $
 
     $scope.nomeUsu = infoLogin.getDsNm();
     
-    $localStorage.peso = 59.8;
-    $localStorage.altura = 1.75;
-    $localStorage.calDiariaTotal = 1300;
-    $localStorage.calConsumidas = 500;
     $localStorage.sexo = "H";
     $localStorage.idade = 20;
     $localStorage.fatorDeAtividade = 1.2;
+    
 //    O fator de atividade é o seguinte:
 //
 //    Pessoas sedentárias: 1.2

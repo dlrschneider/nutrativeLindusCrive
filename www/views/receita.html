@@ -1,11 +1,11 @@
 <ion-view>
 
     <ion-nav-title>
-        <span>Receita</span>
+        <span>Dieta</span>
     </ion-nav-title>
 
     <div class="e-plus">
-        <a class="e-icon" ng-click="$state.go('menu.listaAlimentos')">
+        <a class="e-icon" ng-click="addAlimentoTp1()">
             <i class="icon ion-android-add"></i>
         </a>
     </div>
@@ -14,99 +14,57 @@
         
         <div class="rc-titulo">
             <h5>Manhã</h5>
-            <span>Calorias - <strong>400 cal</strong></span>
+            <span style="display: none;">Calorias - <strong>400 cal</strong></span>
         </div>
         
         <table class="rc-listaAlimentos">
-            <tr>
-                <td>- Pão de ló</td>
-                <td>200g</td>
-                <td>150 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
-            </tr>
-            <tr>
-                <td>- Ovo de codorna</td>
-                <td>40g</td>
-                <td>100 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
-            </tr>
-            <tr>
-                <td>- Leite com chocolate</td>
-                <td>100g</td>
-                <td>150 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
+            <tr ng-repeat="a in manha">
+                <td>- {{a[4]}}</td>
+                <td style="display: none;">200g</td>
+                <td style="display: none;">150 cal</td>
+                <td style="display: none;"><i class="ion-arrow-swap"></i></td>
             </tr>
         </table>
         
         <div class="rc-titulo">
             <h5>Almoço</h5>
-            <span>Calorias - <strong>500 cal</strong></span>
+            <span style="display: none;">Calorias - <strong>500 cal</strong></span>
         </div>
         
         <table class="rc-listaAlimentos">
-            <tr>
-                <td>- Feijão</td>
-                <td>200g</td>
-                <td>150 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
-            </tr>
-            <tr>
-                <td>- Arroz</td>
-                <td>40g</td>
-                <td>100 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
-            </tr>
-            <tr>
-                <td>- Bacon frito</td>
-                <td>100g</td>
-                <td>150 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
-            </tr>
-            <tr>
-                <td>- Brócolis</td>
-                <td>50g</td>
-                <td>50 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
-            </tr>
-            <tr>
-                <td>- Alface</td>
-                <td>50g</td>
-                <td>50 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
+            <tr ng-repeat="a in almoco">
+                <td>- {{a[4]}}</td>
+                <td style="display: none;">200g</td>
+                <td style="display: none;">150 cal</td>
+                <td style="display: none;"><i class="ion-arrow-swap"></i></td>
             </tr>
         </table>
         
         <div class="rc-titulo">
             <h5>Lanche</h5>
-            <span>Calorias - <strong>100 cal</strong></span>
+            <span style="display: none;">Calorias - <strong>100 cal</strong></span>
         </div>
         
         <table class="rc-listaAlimentos">
-            <tr>
-                <td>- Maça</td>
-                <td>200g</td>
-                <td>100 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
+            <tr ng-repeat="a in lanche">
+                <td>- {{a[4]}}</td>
+                <td style="display: none;">200g</td>
+                <td style="display: none;">100 cal</td>
+                <td style="display: none;"><i class="ion-arrow-swap"></i></td>
             </tr>
         </table>
         
         <div class="rc-titulo">
             <h5>Janta</h5>
-            <span>Calorias - <strong>300 cal</strong></span>
+            <span style="display: none;">Calorias - <strong>300 cal</strong></span>
         </div>
         
         <table class="rc-listaAlimentos">
-            <tr>
-                <td>- Sopa de ervilha</td>
-                <td>200g</td>
-                <td>150 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
-            </tr>
-            <tr>
-                <td>- Bolo de chuva</td>
-                <td>300g</td>
-                <td>150 cal</td>
-                <td><i class="ion-arrow-swap"></i></td>
+            <tr ng-repeat="a in janta">
+                <td>- {{a[4]}}</td>
+                <td style="display: none;">200g</td>
+                <td style="display: none;">150 cal</td>
+                <td style="display: none;"><i class="ion-arrow-swap"></i></td>
             </tr>
         </table>
 

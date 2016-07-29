@@ -144,7 +144,18 @@ app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
         }
     })
 
+    .state('menu.notas', {
+        url: "/notas",
+        cache: false,
+        views: {
+            'menuContent': {
+                templateUrl: "views/notas.html",
+                controller: 'NotasController'
+            }
+        }
+    })
+
     ;
 
-    $urlRouterProvider.otherwise('/menu/home');
+    $urlRouterProvider.otherwise('/auth/login');
 });

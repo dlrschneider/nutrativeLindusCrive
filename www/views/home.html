@@ -5,7 +5,7 @@
     </ion-nav-title>
 
     <div class="e-plus">
-        <a class="e-icon" ng-click="$state.go('menu.listaAlimentos')">
+        <a class="e-icon" ng-click="addAlimentoTp1()">
             <i class="icon ion-android-add"></i>
         </a>
     </div>
@@ -61,6 +61,10 @@
                     </p>
                 </div>
             </ion-list>
+            
+            <div style="width: 100%; text-align: center; color: #777; font-size: 13px;" ng-if="noticias.length === 0">
+                Nenhuma atualização ainda.
+            </div>
 
             <ion-infinite-scroll on-infinite="carregaMaisNoticias()" distance="5%">
             </ion-infinite-scroll>

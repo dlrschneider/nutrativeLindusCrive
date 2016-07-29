@@ -1,0 +1,18 @@
+<div class="bg-secPlano" ng-click="closeModalTurno()"></div>
+<div class="modal modalTpCadastro">
+   <div class="ps-modal-area">
+       <h5 style="margin-left: 10px;"></h5>
+       <div class="maa-alimento">
+          <span style="white-space: nowrap;" class="input-label">Turno</span>
+          
+          <input type="radio" name="turno" ng-model="model.turno" value="Manhã"> Manhã<br />
+          <input type="radio" name="turno" ng-model="model.turno" value="Almoço"> Almoço<br />
+          <input type="radio" name="turno" ng-model="model.turno" value="Lanche"> Lanche<br />
+          <input type="radio" name="turno" ng-model="model.turno" value="Janta"> Janta<br />
+       </div>
+       
+       <div class="ps-modal-confCanc">
+          <button class="button button-clear button-dark" style="margin-bottom: 6px;" ng-click="setaTurno()">Adicionar</button>
+       </div>
+   </div>
+</div>
